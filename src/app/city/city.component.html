@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="form-group">
+    <h1>Form control</h1>
+    <div class="group">
+      <label for="firstName">First name</label>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        [formControl]="firstName"
+      />
+    </div>
+
+    <div class="group">
+      <label for="lastName">Last name</label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        [formControl]="lastName"
+      />
+    </div>
+
+    <p>First name: {{ firstName.value }}</p>
+    <p>Last name: {{ lastName.value }}</p>
+
+    <button (click)="updateFirstName()">Update first name value</button>
+    <button (click)="updateLastName()">Update last name value</button>
+  </div>
+
+  <div class="form-group">
+    <h1>Form group</h1>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          formControlName="username"
+        />
+      </div>
+
+      <div class="group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" formControlName="email" />
+      </div>
+
+      <div formGroupName="address">
+        <div class="group">
+          <label for="street">Street</label>
+          <input
+            type="text"
+            name="street"
+            id="street"
+            formControlName="street"
+          />
+        </div>
+
+        <div class="group">
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" formControlName="city" />
+        </div>
+
+        <div class="group">
+          <label for="state">State</label>
+          <input type="text" name="state" id="state" formControlName="state" />
+        </div>
+
+        <div class="group">
+          <label for="zip">Zip</label>
+          <input type="text" name="zip" id="zip" formControlName="zip" />
+        </div>
+      </div>
+
+      <div class="group">
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button mat-button (click)="updateProfile()">Update profile</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-group">
+    <h1>Another profile</h1>
+
+    <form
+      [formGroup]="anotherProfileForm"
+      (ngSubmit)="onSubmitAnotherProfile()"
+    >
+      <div class="group">
+        <label for="firstName">First name</label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          formControlName="firstName"
+        />
+      </div>
+
+      <div class="group">
+        <label for="lastName">Last name</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          formControlName="lastName"
+        />
+      </div>
+
+      <div formGroupName="address">
+        <div class="group">
+          <label for="street">Street</label>
+          <input
+            type="text"
+            name="street"
+            id="street"
+            formControlName="street"
+          />
+        </div>
+
+        <div class="group">
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" formControlName="city" />
+        </div>
+
+        <div class="group">
+          <label for="state">State</label>
+          <input type="text" name="state" id="state" formControlName="state" />
+        </div>
+
+        <div class="group">
+          <label for="zip">Zip</label>
+          <input type="text" name="zip" id="zip" formControlName="zip" />
+        </div>
+        {{ aliases.length }}
+
+        <div *ngFor="let alias of aliases.controls; let i = index">
+          <div class="group">
+            <label for="alias-{{ i }}">Alias {{ i }}</label>
+            <input type="text" [formControlName]="i" />
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button type="button" mat-button (click)="updateProfile()">
+          Update profile
+        </button>
+        <button type="button" mat-button (click)="addAlias()">Add alias</button>
+      </div>
+    </form>
+
+    <p>
+      Profile form value:
+      {{ JSON.stringify(anotherProfileForm.value, null, 2) }}
+    </p>
+    <p>Profile form status: {{ anotherProfileForm.status }}</p>
+  </div>
+</div>

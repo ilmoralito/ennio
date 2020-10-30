@@ -1,0 +1,22 @@
+<h3>HEROES</h3>
+<p>Heroes list</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Alter ego</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes">
+      <td>{{ hero.name }}</td>
+      <td>{{ hero.power }}</td>
+      <td>{{ hero.alterEgo }}</td>
+      <td>
+        <a routerLink="/heroes-list/{{ hero.id }}">Detail</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

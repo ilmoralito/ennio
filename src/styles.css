@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+label {
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+button {
+  padding: 10px;
+}
+
+.error {
+  background-color: tomato;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}

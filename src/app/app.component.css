@@ -1,0 +1,22 @@
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+
+ul li.active {
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-bottom: none;
+}
+
+ul li a {
+  text-decoration: none;
+}
